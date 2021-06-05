@@ -1,4 +1,4 @@
-:: Automatically upgrades an existing W:O install to a new version
+:: Automatically upgrades an existing L:O install to a new version
 :: Author: benson#0411
 :: License: MIT
 
