@@ -1,5 +1,5 @@
 
-Lolipop: Offline Launcher
+:: Lolipop: Offline Launcher
 :: Author: RedBoi/#8423 
 :: License: MIT
 set WRAPPER_VER=1.0.0 Private Beta
@@ -384,7 +384,7 @@ if !FLASH_DETECTED!==n (
 		if "!flashchoice!"=="5" goto chromium_chosen
 		if "!flashchoice!"=="6" goto chromium_chosen
 		if "!flashchoice!"=="7" goto firefox_chosen
-		if "!flashchoice!"=="0" echo Flash will not be installed.&& goto after_flash_install
+		if "!flashchoice!"=="0" echo Flash will not be installed. && goto after_flash_install
 		echo You must pick a browser.&& goto browser_ask
 
 		:chromium_chosen
@@ -768,7 +768,7 @@ if !_rand!==25 echo Enter things you think'll show a secret if you're feeling ad
 :wrapperidle
 echo:
 set /p CHOICE=Choice:
-if "!choice!"=="0" goto exitwrapperconfirm
+if "!choice!"=="0" goto exitlolipopconfirm
 set FUCKOFF=n
 if "!choice!"=="1" goto reopen_webpage
 if "!choice!"=="2" goto start_importer
@@ -779,7 +779,8 @@ if /i "!choice!"=="cls" goto wrapperstartedcls
 if /i "!choice!"=="clear" goto wrapperstartedcls
 :: funni options
 if "!choice!"=="43" echo OH MY GOD. FOURTY THREE CHARS. NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO & goto wrapperidle
-if /i "!choice!"== RedBoi/#8423" echo watch RedBoi/#8423 on youtube & goto wrapperidle
+if /i "!choice!"=="RedBoi/#8423" echo watch RedBoi/#8423 on youtube & goto wrapperidle
+if /i "!choice!'=="jaime" echo hey you, you just---- & goto wrapperidle
 if /i "!choice!"=="ford" echo what up son & goto wrapperidle
 if /i "!choice!"=="no" echo stahp & goto wrapperidle
 if /i "!choice!"=="yes" echo Alright. & goto wrapperidle
@@ -842,10 +843,8 @@ if !INCLUDEDCHROMIUM!==n (
 goto wrapperidle
 
 :open_files
-pushd ..
-echo Opening the wrapper-offline folder...
-start explorer.exe wrapper-offline
-popd
+echo Opening the lolipop-offline folder...
+start explorer.exe "%CD%"
 goto wrapperidle
 
 :start_importer
@@ -887,7 +886,7 @@ goto wrapperidle
 
 :patchtime
 echo:
-echo would you like to patch whoper online
+echo would you like to patch lolpop online
 echo press y or n
 :patchtimeretry
 set /p PATCHCHOICE= Response:
@@ -915,7 +914,7 @@ if !_rand!==11 echo Another monday... & echo Another mind-numbing, run-of-the-mi
 if !_rand!==12 echo try typing "with style" when exiting
 if !_rand!==13 echo elmo
 if !_rand!==14 echo gnorm gnat says: trans rights are human rights
-if !_rand!==15 echo wrapper inline
+if !_rand!==15 echo lolipop inline
 goto wrapperidle
 
 :slayerstestaments
@@ -982,7 +981,7 @@ goto wrapperidle
 ::::::::::::::
 
 :: Confirmation before shutting down
-:exitwrapperconfirm
+:exitlolipopconfirm
 echo:
 echo Are you sure you want to quit Lolipop: Offline? You can do more if you want.
 echo Be sure to save all your work.
@@ -1016,13 +1015,13 @@ echo This window will now close.
 if !INCLUDEDCHROMIUM!==y (
 	echo You can close the web browser now.
 )
-echo Open start_silver_wrapper.bat again to start W:O again.
+echo Open start_lolipop.bat again to start L:O again.
 if !DRYRUN!==y ( echo Go wet your run next time. ) 
 pause & exit
 
 :exitwithstyle
 title Lolipop: Offline v!WRAPPER_VER! [Shutting down... WITH STYLE]
-echo SHUTTING DOWN THE WRAPPER OFFLINE
+echo SHUTTING DOWN THE LOLIPOP OFFLINE
 PING -n 3 127.0.0.1>nul
 color 9b
 echo BEWEWEWEWWW PSSHHHH KSHHHHHHHHHHHHHH
@@ -1030,11 +1029,11 @@ PING -n 3 127.0.0.1>nul
 TASKKILL /IM node.exe /F
 echo NODE DOT JS ANNIHILATED
 PING -n 3 127.0.0.1>nul
-echo TIME TO ELIMINATE WRAPPER OFFLINE
+echo TIME TO ELIMINATE LOLIPOP OFFLINE
 PING -n 3 127.0.0.1>nul
 echo BOBOOBOBMWBOMBOM SOUND EFFECTSSSSS
 PING -n 3 127.0.0.1>nul
-echo WRAPPER OFFLINE ALSO ANNIHILA
+echo LOLIPOP OFFLINE ALSO ANNIHILA
 PING -n 2 127.0.0.1>nul
 exit
 
