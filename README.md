@@ -3,8 +3,7 @@ This program uses a lot of code fromLolipop: Offline to build, Mostly because me
 (RedBoi/SilverStudios#8423) could not figure out some very complicated things, for example: getting a localhost link. But there are some cool features and a more costomizable space to make your videos!
 it is kinda using to much data but it was the best i can do.
 
-# Lollipop: Offline
-After learning that GoAnimateLolipop (a project by VisualPlugin) would be shut down,Lolipop: Offline was created. (simply called "Offline" for the rest of this page) Unlike the original project, Offline can not be shut down or "patched". You have the files all on your computer. This project is important for historical and archival purposes, as the ability to use this legacy editor and themes would be completely gone without it. Besides simply emulating the original Flash editor, some additional features and improvements have been made. And Offline will continue to get additional updates in the future.
+
 
 ## Running / Installation
 To start Offline on Windows, open start_silver_wrapper.bat. It'll automate just about everything for you and, well, startLolipop: Offline. On your first run, you will likely need to right-click it and click "Run as Administrator". This allows it to properly install what it needs to run. After your initial run, you shouldn't need to do that again, you can start it as normal.
