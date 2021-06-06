@@ -55,6 +55,7 @@ Lollipop: Offline credits:
 | RedBoi (D)         | Lollipop: Offline                |
 |JacobAnimate (D) (B)| Beta Tester and Code fixer       |
 | jaime. (D)         | Bug Fixer                        |
+| Abylm8or 2 (B)     | Beta Tester                      |
 
 
 These are unaffiliated people that they haven't directly done anything for the project (and probably don't even know it exists) but still deserve credit for their things. Kinda like a shoutout but in a project's readme. ***Please do not contact them about Lollipop: Offline.***
