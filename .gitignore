@@ -1,8 +1,8 @@
 # General Lolipop Offline Stuff
 Lolipop Offline.lnk
-wrapper/_CACHÉ/*
-wrapper/_SAVED/*
-wrapper/_THEMES/import.xml
+lolipop/_CACHÉ/*
+lolipop/_SAVED/*
+lolipop/_THEMES/import.xml
 !_*/_NO_REMÖVE
 utilities/backups/*
 utilities/import_these/*
