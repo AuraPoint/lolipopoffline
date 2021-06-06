@@ -1,9 +1,8 @@
-
 :: Lolipop: Offline Launcher
 :: Author: RedBoi/#8423 
 :: License: MIT
-set WRAPPER_VER=1.0.0 Private Beta
-title Lolipop: Offline v%WRAPPER_VER% [Initializing...]
+set LOLIPOP_VER=1.0.0 Private Beta
+title Lolipop: Offline v%LOLIPOP_VER% [Initializing...]
 
 ::::::::::::::::::::
 :: Initialization ::
@@ -89,7 +88,7 @@ if not exist "utilities\checks\disclaimer.txt" (
 :: Welcome, Director Ford!
 echo Lolipop: Offline
 echo A project from VisualPlugin adapted by the W:O Team edited by the SW:O Team.
-echo Version !WRAPPER_VER!
+echo Version !LOLIPOP_VER!
 echo:
 
 :: Confirm measurements to proceed.
@@ -126,7 +125,7 @@ if !VERBOSEWRAPPER!==n (
 	echo:
 )
 
-title Lolipop: Offline v!WRAPPER_VER! [Checking dependencies...]
+title Lolipop: Offline v!LOLIPOP_VER! [Checking dependencies...]
 
 :: Preload variables
 set NEEDTHEDEPENDERS=n
@@ -299,7 +298,7 @@ if !NEEDTHEDEPENDERS!==y (
 	goto skip_dependency_install
 )
 
-title Lolipop: Offline v!WRAPPER_VER! [Installing dependencies...]
+title Lolipop: Offline v!LOLIPOP_VER! [Installing dependencies...]
 
 :: Preload variables
 set INSTALL_FLAGS=ALLUSERS=1 /norestart
@@ -686,7 +685,7 @@ echo:
 :: Starting Lolipop ::
 ::::::::::::::::::::::
 
-title Lolipop: Offline v!WRAPPER_VER! [Loading...]
+title Lolipop: Offline v!LOLIPOP_VER! [Loading...]
 
 :: Close existing node apps
 :: Hopefully fixes EADDRINUSE errors??
@@ -741,14 +740,14 @@ echo Lolipop: Offline has been started^^! The video list should now be open.
 :: Post-Start ::
 ::::::::::::::::
 
-title Lolipop: Offline v!WRAPPER_VER!
+title Lolipop: Offline v!LOLIPOP_VER!
 if !VERBOSEWRAPPER!==y ( goto wrapperstarted )
 :wrapperstartedcls
 cls
 :wrapperstarted
 
 echo:
-echo Lolipop: Offline v!WRAPPER_VER! running
+echo Lolipop: Offline v!LOLIPOP_VER! running
 echo A project from VisualPlugin adapted by the W:O Team
 echo:
 if !VERBOSEWRAPPER!==n ( echo DON'T CLOSE THIS WINDOW^^! Use the quit option ^(0^) when you're done. )
@@ -851,7 +850,7 @@ goto wrapperidle
 echo Opening the importer...
 call utilities\import.bat
 cls
-title Lolipop: Offline v!WRAPPER_VER!
+title Lolipop: Offline v!LOLIPOP_VER!
 set JUSTIMPORTED=y
 goto wrapperstartedcls
 
@@ -998,7 +997,7 @@ echo You must answer Yes or No. && goto exitwrapperretry
 
 :point_extraction
 
-title Lolipop: Offline v!WRAPPER_VER! [Shutting down...]
+title Lolipop: Offline v!LOLIPOP_VER! [Shutting down...]
 
 :: Shut down Node.js and http-server
 if !VERBOSEWRAPPER!==y (
@@ -1020,7 +1019,7 @@ if !DRYRUN!==y ( echo Go wet your run next time. )
 pause & exit
 
 :exitwithstyle
-title Lolipop: Offline v!WRAPPER_VER! [Shutting down... WITH STYLE]
+title Lolipop: Offline v!LOLIPOP_VER! [Shutting down... WITH STYLE]
 echo SHUTTING DOWN THE LOLIPOP OFFLINE
 PING -n 3 127.0.0.1>nul
 color 9b
@@ -1038,7 +1037,7 @@ PING -n 2 127.0.0.1>nul
 exit
 
 :patched
-title candypaper nointernet PATCHED edition
+title the lolpolp nointernet PATCHED edition
 color 43
 echo OH MY GODDDDD
 PING -n 3 127.0.0.1>nul
@@ -1050,6 +1049,7 @@ echo whoever put patch.jpeg back, you are grounded grounded gorrudjnmed for 6000
 PING -n 3 127.0.0.1>nul
 :grr
 echo g r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r 
+PING -n 0.55 127.0.0.1>nul
 goto grr
 
 :configcopy
@@ -1060,7 +1060,7 @@ echo :: You should be using settings.bat, and not touching this. Offline relies 
 echo:>> utilities\config.bat
 echo :: Opens this file in Notepad when run>> utilities\config.bat
 echo setlocal>> utilities\config.bat
-echo if "%%SUBSCRIPT%%"=="" ( pushd "%~dp0" ^& start notepad.exe config.bat ^& exit )>> utilities\config.bat
+echo if "%%SUBSCRIPT%%"=="" ( start notepad.exe "%%CD%%\%%~nx0" & exit )>> utilities\config.bat
 echo endlocal>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Shows exactly Offline is doing, and never clears the screen. Useful for development and troubleshooting. Default: n>> utilities\config.bat
@@ -1071,6 +1071,12 @@ echo set SKIPCHECKDEPENDS=n>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: n>> utilities\config.bat
 echo set SKIPDEPENDINSTALL=n>> utilities\config.bat
+echo:>> utilities\config.bat
+echo :: Won't check for dependencies (cepstral, sapi 4, ivona voices) and goes straight to tts generator. Useful for speedy post-install. Default: n>> utilities\config.bat
+echo set SKIPCHECKDEPENDSVOICES=n>> utilities\config.bat
+echo:>> utilities\config.bat
+echo :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDSVOICES. Mostly useless, why did I add this again? Default: n>> utilities\config.bat
+echo set SKIPDEPENDINSTALLVOICES=n>> utilities\config.bat
 echo:>> utilities\config.bat
 echo :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y>> utilities\config.bat
 echo set INCLUDEDCHROMIUM=y>> utilities\config.bat
