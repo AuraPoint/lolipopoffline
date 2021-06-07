@@ -12,6 +12,7 @@ utilities/grounded_messages/*
 utilities/decrypted_assets/*
 utilities/config.bat
 utilities/checks/disclaimer.txt
+utilities/installers/old-ivona-voices/ivona_sapi5_voice_v1.6.37_original.dll
 server/store/3a981f5cb2739137/import/*
 server/vo/*
 .DS_Store

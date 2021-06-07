@@ -52,7 +52,8 @@ if not exist "utilities\checks\disclaimer.txt" (
   echo:
 	echo Lolipop: Offline is a project to preserve the original GoAnimate flash-based themes.
 	echo We believe they should be archived for others to use and learn about in the future, 
-	echo All business themes have been added to the program, you can use them anytime you want.
+	echo All business themes have been removed. Please use Vyond Studio if you wish to get those.
+	echo Note: You will free to customize L:O LVM.
 	echo This is still unlawful use of copyrighted material, but ^(in our opinion^) morally justifiable use.
 	echo i (RedBoi) am the official developer for Lolipop, if you have any concerns about the program, dm me on discord.
 	echo RedBoi/SilverStudios#8423
@@ -468,7 +469,7 @@ if !NODEJS_DETECTED!==n (
 		)
 		echo Proper Node.js installation doesn't seem possible to do automatically.
 		echo You can just keep clicking next until it finishes, and Lolipop: Offline will continue once it closes.
-		if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x64.msi" !INSTALL_FLAGS! )
+		if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x64.msi" !INSTALL_FLAGS! )
 		goto nodejs_installed
 	)
 	if !CPU_ARCHITECTURE!==32 (
@@ -484,7 +485,7 @@ if !NODEJS_DETECTED!==n (
 		)
 		echo Proper Node.js installation doesn't seem possible to do automatically.
 		echo You can just keep clicking next until it finishes, and Lolipop: Offline will continue once it closes.
-		if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! )
+		if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! )
 		goto nodejs_installed
 	)
 	if !CPU_ARCHITECTURE!==what (
@@ -500,7 +501,7 @@ if !NODEJS_DETECTED!==n (
 		:architecture_ask
 		set /p CPUCHOICE= Response:
 		echo:
-		if "!cpuchoice!"=="1" if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSEWRAPPER!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
+		if "!cpuchoice!"=="1" if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSEWRAPPER!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
 		if "!cpuchoice!"=="3" echo Node.js will not be installed. && goto after_nodejs_install
 		echo You must pick one or the other.&& goto architecture_ask
 	)
