@@ -20,7 +20,7 @@ set SKIPDEPENDINSTALL=n
 set SKIPCHECKDEPENDSVOICES=n
 
 :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDSVOICES. Mostly useless, why did I add this again? Default: n
-set SKIPDEPENDINSTALL=n
+set SKIPDEPENDINSTALLVOICES=n
 
 :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y
 set INCLUDEDCHROMIUM=y
