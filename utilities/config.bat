@@ -1,4 +1,4 @@
-:: Lolipop: Offline Config
+:: Wrapper: Offline Config
 :: This file is modified by settings.bat. It is not organized, but comments for each setting have been added.
 :: You should be using settings.bat, and not touching this. Offline relies on this file remaining consistent, and it's easy to mess that up.
 
@@ -11,16 +11,10 @@ endlocal
 set VERBOSEWRAPPER=n
 
 :: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: n
-set SKIPCHECKDEPENDS=n
+set SKIPCHECKDEPENDS=y
 
 :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: n
 set SKIPDEPENDINSTALL=n
-
-:: Won't check for dependencies (cepstral, sapi 4, ivona voices) and goes straight to tts generator. Useful for speedy post-install. Default: n
-set SKIPCHECKDEPENDSVOICES=n
-
-:: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDSVOICES. Mostly useless, why did I add this again? Default: n
-set SKIPDEPENDINSTALLVOICES=n
 
 :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y
 set INCLUDEDCHROMIUM=y
@@ -32,8 +26,20 @@ set APPCHROMIUM=y
 set CUSTOMBROWSER=n
 
 :: Lets the launcher know what browser framework is being used. Mostly used by the Flash installer. Accepts "chrome", "firefox", and "n". Default: n
+set BROWSER_TYPE=n
+set CUSTOMBROWSER=n
+
+set DRYRUN=n
 set BROWSER_TYPE=chrome
 
-:: Runs through all of the scripts code, while never launching or installing anything. Useful for development. Default: n
-set DRYRUN=n
+set CEPSTRAL=n
 
+:: Opens Offline in an included copy of Basilisk, sourced from BlueMaxima's Flashpoint.
+:: Allows continued use of Flash as modern browsers disable it. Default: n
+set INCLUDEDBASILISK=y
+
+:: Makes it so both the settings and the Wrapper launcher shows developer options. Default: n
+set DEVMODE=y
+
+:: Tells settings.bat which port the frontend is hosted on. (If changed manually, you MUST also change the value of "SERVER_PORT" to the same value in wrapper\env.json) Default: 4343
+set PORT=4343

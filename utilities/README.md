@@ -1,5 +1,2 @@
-# Lolipop: Offline "utilities" folder
-These are some utilites that lvm needs.
-# Do i delete it?
-No. Don't delete this folder, it's all of start_lolipop.bat magic in here.
-It can break features.
+# utilities
+The utilities folder is used to run Wrapper Offline, and more. Don't delete this or basically nothing would work because all of the start_wrapper.bat magic is in here. This also includes the source code of any of the stuff we use.
