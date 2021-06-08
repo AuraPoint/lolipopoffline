@@ -11,9 +11,15 @@ endlocal
 set VERBOSEWRAPPER=n
 
 :: Won't check for dependencies (flash, node, etc) and goes straight to launching. Useful for speedy launching post-install. Default: n
-set SKIPCHECKDEPENDS=y
+set SKIPCHECKDEPENDS=n
 
 :: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDS. Mostly useless, why did I add this again? Default: n
+set SKIPDEPENDINSTALL=n
+
+:: Won't check for dependencies (old cepstral, old ivona, sapi 4) and goes straight to launching. Useful for speedy launching post-install. Default: n
+set SKIPCHECKDEPENDSVOICES=n
+
+:: Won't install dependencies, regardless of check results. Overridden by SKIPCHECKDEPENDSVOICES. Mostly useless, why did I add this again? Default: n
 set SKIPDEPENDINSTALL=n
 
 :: Opens Offline in an included copy of ungoogled-chromium. Allows continued use of Flash as modern browsers disable it. Default: y
