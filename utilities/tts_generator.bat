@@ -72,6 +72,7 @@ if !errorlevel! == 0 (
 	echo SAPI 4 voices are not installed.
 	echo:
 	set SAPIFOUR_DETECTED=n
+	set ADMINREQUIRED=y
 	set NEEDTHEDEPENDERS=y
 ) else (
 	echo SAPI 4 voices are installed.
@@ -84,6 +85,7 @@ balcon\balcon.exe -l | findstr "Cepstral" > nul
 if !errorlevel! == 0 (
 	echo OLD Cepstral/Some Voiceforge voices are not installed.
 	set CEPSTRAL_DETECTED=n
+	set ADMINREQUIRED=y
 	set NEEDTHEDEPENDERS=y
 ) else (
 	echo OLD Cepstral/Some Voiceforge voices are installed.
@@ -95,6 +97,7 @@ balcon\balcon.exe -l | findstr "IVONA" > nul
 if !errorlevel! == 0 (
 	echo OLD IVONA voices are not installed.
 	set IVONA_DETECTED=n
+	set ADMINREQUIRED=y
 	set NEEDTHEDEPENDERS=y
 ) else (
 	echo OLD IVONA voices are installed.
@@ -105,10 +108,10 @@ if !errorlevel! == 0 (
 if !NEEDTHEDEPENDERS!==y (
 	if !SKIPDEPENDINSTALLVOICES!==n (
 		echo:
-		echo Installing missing dependencies...
+		echo Installing missing voice dependencies...
 		echo:
 	) else (
-	echo Skipping dependency install.
+	echo Skipping voice dependencies install.
 	goto main
 	)
 ) else (
@@ -146,6 +149,10 @@ title Lolipop: Offline TTS Generator [Installing voice dependencies...]
 :: Preload variables
 set INSTALL_FLAGS=ALLUSERS=1 /norestart
 set SAFE_MODE=n
+set CPU_ARCHITECTURE=what
+if /i "!processor_architecture!"=="x86" set CPU_ARCHITECTURE=32
+if /i "!processor_architecture!"=="AMD64" set CPU_ARCHITECTURE=64
+if /i "!PROCESSOR_ARCHITEW6432!"=="AMD64" set CPU_ARCHITECTURE=64
 if /i "!SAFEBOOT_OPTION!"=="MINIMAL" set SAFE_MODE=y
 if /i "!SAFEBOOT_OPTION!"=="NETWORK" set SAFE_MODE=y
 
@@ -165,7 +172,7 @@ if !ADMINREQUIRED!==y (
 			echo Lolipop: Offline needs to install these voices:
 			echo:
 			if !SAPIFOUR_DETECTED!==n ( echo SAPI 4 )
-			if !CEPSTRAL_DETECTED!==n ( echo OLD Cepstral )
+			if !CEPSTRAL_DETECTED!==n ( echo OLD Cepstral/Some Voiceforge )
 			if !IVONA_DETECTED!==n ( echo OLD Ivona ^(2^) )
 			echo To do this, it must be started with Admin rights.
 			echo:
@@ -185,13 +192,146 @@ if !ADMINREQUIRED!==y (
 			if !DRYRUN!==y (
 				echo ...yep, dry run is going great so far, let's skip the exit
 				pause
-				goto postadmincheck
+				goto installing
 			)
 		)
 	)
 	if !VERBOSEWRAPPER!==y ( echo Admin rights detected. && echo:)
 )
 
-:postadmincheck
-if !SAPIFOUR_DETECTED!==n
+:: Installing missing voices
+:installing
+if !SAPIFOUR_DETECTED!==n (
+	echo Installing SAPI 4 voices and requirements for SAPI 4...
+	if not exist "installers\SAPI-four" ( 
+		echo ......
+		PING -n 4 127.0.0.1>nul
+		echo This is an issue here....
+		echo The SAPI 4 voices and requirements for SAPI 4 does not exist.
+		echo A normal copy of Lolipop: Offline should come with one.
+		echo You should be able to find a copy on these websites, here:
+		echo https://ia802904.us.archive.org/view_archive.php?archive=/35/items/speakonia_1036/speakonia-1.0.zip
+		echo https://ia802904.us.archive.org/view_archive.php?archive=/35/items/speakonia_1036/speakonia-langmodules.zip
+		echo Although SAPI 4 voices are needed, Offline will try to install anything else it can.
+		pause
+		goto after_sapifour_installed
+	)
+	if !DRYRUN!==n (
+		pushd installers\SAPI-four
+		start lhttseng.exe
+		start msttsl.exe
+		start spchapi.exe
+		start tv_enua.exe
+		popd
+		goto sapifour_installed
+	)
+	:sapifour_installed
+	echo SAPI 4 voices and requirements for SAPI 4 are now installed.
+	set SAPIFOUR_DETECTED=y
+	goto after_sapifour_installed
+)
 
+:after_sapifour_installed
+if !CEPSTRAL_DETECTED!==n (
+	echo Installing OLD Cepstral/Some Voiceforge voices...
+	if not exist "installers\old-cepstral-voices" ( 
+		echo ......
+		PING -n 4 127.0.0.1>nul
+		echo This is an issue here....
+		echo All of the OLD Cepstral/Some Voiceforge voices does not exist.
+		echo A normal copy of Lolipop: Offline should come with one.
+		echo You should be able to find a copy on the website:
+		echo https://drive.google.com/file/d/1Mxa-jbt0Xw_7t0Cx0u1wVlAcllh-NAMu/view?usp=sharing
+		echo Although the OLD Cepstral voices are needed, Offline will try to install anything else it can.
+		pause
+		goto after_cepstral_installed
+	)
+	echo Proper Node.js installation doesn't seem possible to do automatically.
+	echo You can just keep clicking next until it finishes, and Lolipop: Offline will continue once it closes.	
+	if !DRYRUN!==n (
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Allison_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Amy_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Calie_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Damien_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_David_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Duchness_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Duncan_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Emily_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Lawrence_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Robin_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_Walter_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		msiexec /qn+ /i "installers\old-cepstral-voices\Cepstral_William_windows_5.2.2b1.msi" !INSTALL_FLAGS!
+		goto cepstral_installed
+	)
+	:cepstral_installed
+	echo The OLD Cepstral/Some Voiceforge voices are now installed.
+	set CEPSTRAL_DETECTED=y
+	goto after_cepstral_installed
+)
+
+:after_cepstral__installed
+if !IVONA_DETECTED!==n (
+	echo Installing OLD IVONA ^(2^) voices...
+	if not exist "installers\old-ivona-voices" ( 
+		echo ......
+		PING -n 4 127.0.0.1>nul
+		echo This is an issue here....
+		echo All of the OLD IVONA ^(2^) voices does not exist.
+		echo A normal copy of Lolipop: Offline should come with one.
+		echo You should be able to find a copy on these websites:
+		echo https://www.deskshare.com/download/voices/Eric.exe
+		echo http://web.archive.org/web/20100923222606/http://deskshare.com/download/voices/Jennifer.exe
+		echo http://web.archive.org/web/20100923222606/http://deskshare.com/download/voices/Joey.exe
+		echo http://web.archive.org/web/20160324154301/http://www.deskshare.com/download/voices/Salli.exe
+		echo https://www.deskshare.com/download/voices/Ivy.exe
+		echo https://www.deskshare.com/download/voices/Brian.exe
+		echo https://www.deskshare.com/download/voices/Amy.exe
+		echo https://www.deskshare.com/download/voices/Emma.exe
+		echo https://www.deskshare.com/download/voices/Kendra.exe
+		echo https://www.deskshare.com/download/voices/Kimberly.exe
+		echo Although the OLD IVONA ^(2^) voices are needed, Offline will try to install anything else it can.
+		pause
+		goto after_ivona_installed
+	)
+	echo Proper Ivona 2 voices installation doesn't seem possible to do automatically.
+	echo You can just keep clicking next until it finishes, and Lolipop: Offline will continue once it closes.	
+	if !DRYRUN!==n (
+		if !CPU_ARCHITECTURE!==32 (
+			start "runasti\RunAsTI32.exe" "installers\old-ivona-voices\Eric.exe"
+		)
+		if !CPU_ARCHITECTURE!==64 (
+			start "runasti\RunAsTI64.exe" "installers\old-ivona-voices\Eric.exe"
+		)
+		goto ivona_installed
+	)
+	:ivona_installed
+	echo The OLD IVONA ^(2^) voices are now installed.
+	set IVONA_DETECTED=y
+	goto after_ivona_installed
+)
+
+:after_ivona_installed
+if !ADMINREQUIRED!==y (
+	color 20
+	if !VERBOSEWRAPPER!==n ( cls )
+	echo:
+	echo Dependencies needing Admin now installed^!
+	echo:
+	echo Lolipop: Offline no longer needs Admin rights,
+	echo please restart normally by double-clicking the tts_generator.bat.
+	echo:
+	echo If you saw this from running normally,
+	echo Lolipop: Offline should continue normally after a restart.
+	echo:
+	if !DRYRUN!==y (
+		echo ...you enjoying the dry run experience? Skipping closing.
+		pause
+		color 7
+		goto main
+	)
+	pause
+	exit
+)
+
+:main
+:: Welcome to TTS Generator, RedBoi.
