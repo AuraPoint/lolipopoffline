@@ -1,5 +1,5 @@
 :: Lolipop: Offline Launcher
-:: Author: RedBoi/#8423 
+:: Author: RedBoi/SilverStudios#0001
 :: License: MIT
 set LOLIPOP_VER=1.0.0 Private Beta
 title Lolipop: Offline v%LOLIPOP_VER% [Initializing...]
@@ -56,7 +56,7 @@ if not exist "utilities\checks\disclaimer.txt" (
 	echo Note: You will free to customize L:O LVM.
 	echo This is still unlawful use of copyrighted material, but ^(in our opinion^) morally justifiable use.
 	echo i (RedBoi) am the official developer for Lolipop, if you have any concerns about the program, dm me on discord.
-	echo RedBoi/SilverStudios#8423
+	echo RedBoi/SilverStudios#0001
 	echo:
 	echo We are not affiliated in any form with Vyond or GoAnimate Inc. We generate no profit from this.
 	echo We do not wish to promote piracy, and we avoid distributing content that is still in use by GoAnimate Inc.
