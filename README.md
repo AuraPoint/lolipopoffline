@@ -1,6 +1,6 @@
 # Lolipop: Offline
 This program uses a lot of code from Wrapper: Offline to build, Mostly because me  
-(RedBoi/SilverStudios#8423) could not figure out some very complicated things, for example: getting a localhost link. But there are some cool features and a more costomizable space to make your videos!
+(RedBoi/SilverStudios#0001) could not figure out some very complicated things, for example: getting a localhost link. But there are some cool features and a more costomizable space to make your videos!
 it is kinda using to much data but it was the best i can do.
 
 
