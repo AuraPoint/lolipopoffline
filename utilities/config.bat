@@ -1,4 +1,4 @@
-:: Wrapper: Offline Config
+:: Lolipop: Offline Config
 :: This file is modified by settings.bat. It is not organized, but comments for each setting have been added.
 :: You should be using settings.bat, and not touching this. Offline relies on this file remaining consistent, and it's easy to mess that up.
 
@@ -33,19 +33,22 @@ set CUSTOMBROWSER=n
 
 :: Lets the launcher know what browser framework is being used. Mostly used by the Flash installer. Accepts "chrome", "firefox", and "n". Default: n
 set BROWSER_TYPE=n
-set CUSTOMBROWSER=n
 
+:: Runs through all of the scripts code, while never launching or installing anything. Useful for development. Default: n
 set DRYRUN=n
-set BROWSER_TYPE=chrome
 
+:: Makes it so it uses the Cepstral website instead of VFProxy. Default: n
 set CEPSTRAL=n
 
 :: Opens Offline in an included copy of Basilisk, sourced from BlueMaxima's Flashpoint.
 :: Allows continued use of Flash as modern browsers disable it. Default: n
-set INCLUDEDBASILISK=y
+set INCLUDEDBASILISK=n
 
 :: Makes it so both the settings and the Wrapper launcher shows developer options. Default: n
 set DEVMODE=y
 
 :: Tells settings.bat which port the frontend is hosted on. (If changed manually, you MUST also change the value of "SERVER_PORT" to the same value in wrapper\env.json) Default: 4343
 set PORT=4343
+
+:: Automatically restarts the NPM whenever it crashes. Default: y
+set AUTONODE=y
