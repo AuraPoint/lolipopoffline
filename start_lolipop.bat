@@ -18,7 +18,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 pushd "%~dp0"
 if !errorlevel! NEQ 0 goto error_location
 if not exist utilities ( goto error_location )
-if not exist wrapper ( goto error_location )
+if not exist lolipop ( goto error_location )
 if not exist server ( goto error_location )
 goto noerror_location
 :error_location
