@@ -53,7 +53,6 @@ Lollipop: Offline credits:
 | Name               | Contribution                                                                                                                      |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------  |
 | RedBoi (D)         | Lollipop: Offline                                                                                                                 |
-|JacobAnimate (D) (B)| Beta Tester and Code fixer                                                                                                        |
 | jaime. (D)         | Bug Fixer                                                                                                                         |
 | Abylm8or 2 (D) (B) | Beta Tester and mini dev                                                                                                          |
 | BlueMystery (D)    |  Possible fixes to TTS voices, Importing more things to the comedy world theme, Possibly actually the importer itself, Bug fixes. |
