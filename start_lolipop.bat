@@ -779,7 +779,7 @@ if /i "!choice!"=="cls" goto wrapperstartedcls
 if /i "!choice!"=="clear" goto wrapperstartedcls
 :: funni options
 if "!choice!"=="43" echo OH MY GOD. FOURTY THREE CHARS. NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO & goto wrapperidle
-if /i "!choice!"=="RedBoi/#8423" echo watch RedBoi/#8423 on youtube & goto wrapperidle
+if /i "!choice!"=="RedBoi" echo watch RedBoi on youtube & goto wrapperidle
 if /i "!choice!'=="jaime" echo hey you, you just---- & goto wrapperidle
 if /i "!choice!"=="ford" echo what up son & goto wrapperidle
 if /i "!choice!"=="no" echo stahp & goto wrapperidle
@@ -787,13 +787,14 @@ if /i "!choice!"=="yes" echo Alright. & goto wrapperidle
 if /i "!choice!"=="fuck off" goto youfuckoff
 if /i "!choice!"=="fuck you" echo No, fuck you. & goto wrapperidle
 if /i "!choice!"=="sex" echo that's fake & goto wrapperidle
-if /i "!choice!"=="watch RedBoi/#8423 on youtube" goto w_a_t_c_h
+if /i "!choice!"=="watch RedBoi on youtube" goto w_a_t_c_h
 if /i "!choice!"=="browser slayer" goto slayerstestaments
 if /i "!choice!"=="patch" goto patchtime
 if /i "!choice!"=="random" goto sayarandom
 if /i "!choice!"=="narutofan420" echo i am narutofan420 i am a naruto fan i watch naruto i watched all 3 series and still watch it & goto wrapperidle
 if /i "!choice!"=="die" echo die please & goto wrapperidle
 if /i "!choice!"=="aaron doan" echo YOU^^!^^!^^! Noo Lolipop Is Patched Forever^^!^^!^^! Cries And Hits You So Many Times & goto wrapperidle
+if /i "!choice!"=="RedBoi Sucks" echo HOW COULD YOU SAY THAT! NO MORE LOLIPOP FOR YOU & goto exitwithstyle 
 :: dev options
 if /i "!choice!"=="amnesia" goto wipe_save
 if /i "!choice!"=="restart" goto restart
