@@ -130,6 +130,11 @@ for %%a in (import_these\*) do (
 
 	:: Ask category
 	if !cftype!=="img" (
+	    echo NOTE: If you're importing a backdrop, the
+		echo backdrop MUST be 550x310. If you go any
+        echo larger, it will zoom into the top-right
+        echo corner. We have no idea why it does that.
+        echo:
 		echo Press 1 to import !cfname! as a backdrop.
 		echo Press 2 to import !cfname! as a prop.
 		:imgaskretry
@@ -178,8 +183,8 @@ for %%a in (import_these\*) do (
 
 	echo Moving file to theme...
 	echo:
-	copy /y %%a !themefolder!!cfid! >nul
-	pushd !themefolder!
+	copy /y "%%a" "!themefolder!!cfid!" >nul
+	pushd "!themefolder!"
 	if !cftype!=="img" (
 		if not exist !cfsubtype! ( md !cfsubtype! )
 		pushd !cfsubtype!
@@ -239,7 +244,7 @@ for %%a in (import_these\*) do (
 	)
 	:linereached
 	:: Print our string and a blank line for the next one
-	echo !cfxml!>> temp.xml
+	echo 	!cfxml!>> temp.xml
 	echo:>> temp.xml
 	:: Print the last of theme.xml to our temp file
 	more +!cfline! theme.xml>> temp.xml
@@ -253,7 +258,7 @@ for %%a in (import_these\*) do (
 	echo:
 	
 	:: Copy theme.xml to _THEMES folder
-	copy /y !themefolder!theme.xml wrapper\_THEMES\import.xml
+	copy /y "!themefolder!\theme.xml" "wrapper\_THEMES\import.xml"
 
 	:: Move file out of the way so we don't repeat it
 	pushd import_these
@@ -273,7 +278,7 @@ for %%a in (import_these\*) do (
 
 :: Zip the XML because it demands that we do so
 echo Zipping XML...
-7za.exe a "!themefolder!\import.zip" "!themefolder!\theme.xml" >nul
+call 7za.exe a "!themefolder!\import.zip" "!themefolder!\theme.xml" >nul
 
 :end
 endlocal

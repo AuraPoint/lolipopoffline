@@ -1,6 +1,6 @@
 # Lolipop: Offline
 This program uses a lot of code from Wrapper: Offline to build, Mostly because me  
-(RedBoi/SilverStudios#8423) could not figure out some very complicated things, for example: getting a localhost link. But there are some cool features and a more costomizable space to make your videos!
+(RedBoi/SilverStudios#0001) could not figure out some very complicated things, for example: getting a localhost link. But there are some cool features and a more costomizable space to make your videos!
 it is kinda using to much data but it was the best i can do.
 
 
@@ -50,11 +50,17 @@ Some members of the original team have asked to not be given credit, and they ha
 Developers will have (D) on their name, to show they are officially working on Lollipop: Offline. Beta testers will have (B) on their name to show that they are beta testers for Lollipop: Offline. Contributors will have (C) on their name to show that they are making contributions to Lollipop: Offline by sharing some of their files with us. Everyone else has simply contributed something at some point.
 Lollipop: Offline credits:
 
-| Name               | Contribution                     |
-| ------------------ | -------------------------------- |
-| RedBoi (D)         | Lollipop: Offline                |
-|JacobAnimate (D) (B)| Beta Tester and Code fixer       |
-| jaime. (D)         | Bug Fixer                        |
+| Name               | Contribution                                                                                                                      |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------  |
+| RedBoi (D)         | Lollipop: Offline                                                                                                                 |
+| jaime. (D)         | Bug Fixer                                                                                                                         |
+| Abylm8or 2 (D) (B) | Beta Tester and mini dev                                                                                                          |
+| BlueMystery (D)    |  Possible fixes to TTS voices, Importing more things to the comedy world theme, Possibly actually the importer itself, Bug fixes. |
+|RubyWrapperCartoon(D)| Developer                                                                                                                        |
+| MacoiAnimate (D)   | Developer                                                                                                                         |
+
+
+
 
 
 These are unaffiliated people that they haven't directly done anything for the project (and probably don't even know it exists) but still deserve credit for their things. Kinda like a shoutout but in a project's readme. ***Please do not contact them about Lollipop: Offline.***
