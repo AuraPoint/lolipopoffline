@@ -44,8 +44,8 @@ set CEPSTRAL=n
 :: Allows continued use of Flash as modern browsers disable it. Default: n
 set INCLUDEDBASILISK=n
 
-:: Makes it so both the settings and the Wrapper launcher shows developer options. Default: n
-set DEVMODE=y
+:: Makes it so both the settings and the Lolipop launcher shows developer options. Default: n
+set DEVMODE=n
 
 :: Tells settings.bat which port the frontend is hosted on. (If changed manually, you MUST also change the value of "SERVER_PORT" to the same value in wrapper\env.json) Default: 4343
 set PORT=4343

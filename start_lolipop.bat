@@ -117,7 +117,8 @@ if not exist "utilities\checks\disclaimer.txt" (
 
 :: Welcome, Director Ford!
 echo Lolipop: Offline
-echo A project from VisualPlugin adapted by the W:O team
+echo An original project from VisualPlugin originally adapted by the W:O team
+echo Made by: RedBoi/SilverStudios#0001
 echo Version !LOLIPOP_VER!, build !LOLIPOP_BLD!
 echo:
 
@@ -544,7 +545,7 @@ if !NODEJS_DETECTED!==n (
 		)
 		echo Proper Node.js installation doesn't seem possible to do automatically.
 		echo You can just keep clicking next until it finishes, and Lolipop: Offline will continue once it closes.
-		if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x64.msi" !INSTALL_FLAGS! )
+		if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x64.msi" !INSTALL_FLAGS! )
 		goto nodejs_installed
 	)
 	if !CPU_ARCHITECTURE!==32 (
@@ -560,7 +561,7 @@ if !NODEJS_DETECTED!==n (
 		)
 		echo Proper Node.js installation doesn't seem possible to do automatically.
 		echo You can just keep clicking next until it finishes, and Lolipop: Offline will continue once it closes.
-		if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! )
+		if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! )
 		goto nodejs_installed
 	)
 	if !CPU_ARCHITECTURE!==what (
@@ -581,7 +582,7 @@ if !NODEJS_DETECTED!==n (
 		:architecture_ask
 		set /p CPUCHOICE= Response:
 		echo:
-		if "!cpuchoice!"=="1" if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSELOLIPOP!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
+		if "!cpuchoice!"=="1" if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSELOLIPOP!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
 		if "!cpuchoice!"=="2" (
 			echo:
 			echo Press 1 if you're running Lolipop: Offline on a 32-bit system.
@@ -592,8 +593,8 @@ if !NODEJS_DETECTED!==n (
 			echo:
 			if "!whatsystem!"=="1" set CPU_ARCHITECTURE=32
 			if "!whatsystem!"=="2" set CPU_ARCHITECTURE=64
-			if "!whatsystem!"=="32" echo Wasn't exactly the kind of response I was asking for but I'll take it anyways. & echo: & pause & set CPU_ARCHITECTURE=32
-			if "!whatsystem!"=="64" echo Wasn't exactly the kind of response I was asking for but I'll take it anyways. & echo: & pause & set CPU_ARCHITECTURE=64			
+			if "!whatsystem!"=="32" echo Wasn't exactly the kind of response I was asking for but I'll take it anyways. && echo: && pause && set CPU_ARCHITECTURE=32 && if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSELOLIPOP!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
+			if "!whatsystem!"=="64" echo Wasn't exactly the kind of response I was asking for but I'll take it anyways. && echo: && pause && set CPU_ARCHITECTURE=64 && if !DRYRUN!==n ( msiexec /qn /i "utilities\installers\node_windows_x64.msi" !INSTALL_FLAGS! ) && if !VERBOSELOLIPOP!==y ( echo Attempting 64-bit Node.js installation. ) && goto nodejs_installed
 			if "!whatsystem!"=="" echo That's an invalid option. Please try again. && goto whatsystemreask
 		)
 		if "!cpuchoice!"=="3" echo Node.js will not be installed. && goto after_nodejs_install
