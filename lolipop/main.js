@@ -19,10 +19,10 @@ rpc.on("ready", () => {
 	// Sets RPC activity
 	rpc.setActivity({
 		state: "Making a video/character",
-		details: "Version 0.1.0 PRIVATE BETA"
+		details: "Version 0.1.0 PRIVATE BETA",
 		startTimestamp: new Date(),
 		largeImageKey: "large",
-		largeImageText: "Lolipop: Offline",
+		largeImageText: "Lolipop: Offline (DEV)",
 		smallImageKey: "small",
 		smallImagetext: "Lolipop: Offline",
 	});
