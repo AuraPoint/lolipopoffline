@@ -127,7 +127,7 @@ echo Loading settings...
 if not exist utilities\config.bat ( goto configmissing )
 call utilities\config.bat
 echo:
-if !VERBOSElolipop!==y ( echo Verbose mode activated. && echo:)
+if !VERBOSELOLIPOP!==y ( echo Verbose mode activated. && echo:)
 goto configavailable
 
 :: Restore config
@@ -150,7 +150,7 @@ if !SKIPCHECKDEPENDS!==y (
 	goto skip_dependency_install
 )
 
-if !VERBOSElolipop!==n (
+if !VERBOSELOLIPOP!==n (
 	echo Checking for dependencies...
 	echo:
 )
@@ -169,7 +169,7 @@ set HTTPSCERT_DETECTED=n
 if !INCLUDEDCHROMIUM!==y set BROWSER_TYPE=chrome
 
 :: Flash Player
-if !VERBOSElolipop!==y ( echo Checking for Flash installation... )
+if !VERBOSELOLIPOP!==y ( echo Checking for Flash installation... )
 if exist "!windir!\SysWOW64\Macromed\Flash\*pepflashplayer64_34_0_0_155.dll" set FLASH_CHROMIUM_DETECTED=y
 if exist "!windir!\System32\Macromed\Flash\*pepflashplayer64_34_0_0_155.dll" set FLASH_CHROMIUM_DETECTED=y
 if exist "!windir!\SysWOW64\Macromed\Flash\*pepper.exe" set FLASH_CHROMIUM_DETECTED=y
@@ -224,7 +224,7 @@ if !BROWSER_TYPE!==n (
 :flash_checked
 
 :: Node.js
-if !VERBOSElolipop!==y ( echo Checking for Node.js installation... )
+if !VERBOSELOLIPOP!==y ( echo Checking for Node.js installation... )
 for /f "delims=" %%i in ('npm -v 2^>nul') do set output=%%i
 IF "!output!" EQU "" (
 	echo Node.js could not be found.
@@ -240,7 +240,7 @@ IF "!output!" EQU "" (
 :nodejs_checked
 
 :: http-server
-if !VERBOSElolipop!==y ( echo Checking for http-server installation... )
+if !VERBOSELOLIPOP!==y ( echo Checking for http-server installation... )
 npm list -g | findstr "http-server" >nul
 if !errorlevel! == 0 (
 	echo http-server is installed.
@@ -254,7 +254,7 @@ if !errorlevel! == 0 (
 :httpserver_checked
 
 :: HTTPS cert
-if !VERBOSElolipop!==y ( echo Checking for HTTPS certificate... )
+if !VERBOSELOLIPOP!==y ( echo Checking for HTTPS certificate... )
 call certutil -store -enterprise root | findstr "WOCRTV3" >nul
 if !errorlevel! == 0 (
 	echo HTTPS cert installed.
@@ -348,12 +348,12 @@ if /i "!PROCESSOR_ARCHITEW6432!"=="AMD64" set CPU_ARCHITECTURE=64
 :: Skipped in Safe Mode, just in case anyone is running lolipop in safe mode... for some reason
 :: and also because that was just there in the code i used for this and i was like "eh screw it why remove it"
 if !ADMINREQUIRED!==y (
-	if !VERBOSElolipop!==y ( echo Checking for Administrator rights... && echo:)
+	if !VERBOSELOLIPOP!==y ( echo Checking for Administrator rights... && echo:)
 	if /i not "!SAFE_MODE!"=="y" (
 		fsutil dirty query !systemdrive! >NUL 2>&1
 		if /i not !ERRORLEVEL!==0 (
 			color cf
-			if !VERBOSElolipop!==n ( cls )
+			if !VERBOSELOLIPOP!==n ( cls )
 			echo:
 			echo ERROR
 			echo:
@@ -381,7 +381,7 @@ if !ADMINREQUIRED!==y (
 			goto rebootasadmin
 		)
 	)
-	if !VERBOSElolipop!==y ( echo Admin rights detected. && echo:)
+	if !VERBOSELOLIPOP!==y ( echo Admin rights detected. && echo:)
 )
 :postadmincheck
 if exist "%tmp%\requestAdmin.vbs" ( del "%tmp%\requestAdmin.vbs">nul )
@@ -436,10 +436,10 @@ if !FLASH_DETECTED!==n (
 		echo You must pick a browser.&& goto browser_ask
 
 		:chromium_chosen
-		set BROWSER_TYPE=chrome && if !VERBOSElolipop!==y ( echo Chromium-based browser picked. && echo:) && goto escape_browser_ask
+		set BROWSER_TYPE=chrome && if !VERBOSELOLIPOP!==y ( echo Chromium-based browser picked. && echo:) && goto escape_browser_ask
 
 		:firefox_chosen
-		set BROWSER_TYPE=firefox && if !VERBOSElolipop!==y ( echo Firefox-based browser picked. ) && goto escape_browser_ask
+		set BROWSER_TYPE=firefox && if !VERBOSELOLIPOP!==y ( echo Firefox-based browser picked. ) && goto escape_browser_ask
 	)
 
 	:escape_browser_ask
@@ -457,7 +457,7 @@ if !FLASH_DETECTED!==n (
 	)
 	echo Rip and tear, until it is done.
 	for %%i in (firefox,palemoon,tor,iexplore,maxthon,microsoftedge,chrome,chrome64,chromium,opera,brave,torch,waterfox,basilisk,Basilisk-Portable) do (
-		if !VERBOSElolipop!==y (
+		if !VERBOSELOLIPOP!==y (
 			 taskkill /f /im %%i.exe /t
 			 wmic process where name="%%i.exe" call terminate
 		) else (
@@ -532,7 +532,7 @@ if !NODEJS_DETECTED!==n (
 	echo:
 	:: Install Node.js
 	if !CPU_ARCHITECTURE!==64 (
-		if !VERBOSElolipop!==y ( echo 64-bit system detected, installing 64-bit Node.js. )
+		if !VERBOSELOLIPOP!==y ( echo 64-bit system detected, installing 64-bit Node.js. )
 		if not exist "utilities\installers\node_windows_x64.msi" (
 			echo We have a problem. The 64-bit Node.js installer doesn't exist.
 			echo A normal copy of Lolipop: Offline should come with one.
@@ -548,7 +548,7 @@ if !NODEJS_DETECTED!==n (
 		goto nodejs_installed
 	)
 	if !CPU_ARCHITECTURE!==32 (
-		if !VERBOSElolipop!==y ( echo 32-bit system detected, installing 32-bit Node.js. )
+		if !VERBOSELOLIPOP!==y ( echo 32-bit system detected, installing 32-bit Node.js. )
 		if not exist "utilities\installers\node_windows_x32.msi" (
 			echo We have a problem. The 32-bit Node.js installer doesn't exist.
 			echo A normal copy of Lolipop: Offline should come with one.
@@ -581,7 +581,7 @@ if !NODEJS_DETECTED!==n (
 		:architecture_ask
 		set /p CPUCHOICE= Response:
 		echo:
-		if "!cpuchoice!"=="1" if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSElolipop!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
+		if "!cpuchoice!"=="1" if !DRYRUN!==n ( msiexec /i "utilities\installers\node_windows_x32.msi" !INSTALL_FLAGS! ) && if !VERBOSELOLIPOP!==y ( echo Attempting 32-bit Node.js installation. ) && goto nodejs_installed
 		if "!cpuchoice!"=="2" (
 			echo:
 			echo Press 1 if you're running Lolipop: Offline on a 32-bit system.
@@ -692,7 +692,7 @@ if !HTTPSCERT_DETECTED!==n (
 	if /i not "!SAFE_MODE!"=="y" (
 		fsutil dirty query !systemdrive! >NUL 2>&1
 		if /i not !ERRORLEVEL!==0 (
-			if !VERBOSElolipop!==n ( cls )
+			if !VERBOSELOLIPOP!==n ( cls )
 			echo For Lolipop: Offline to work, it needs an HTTPS certificate to be installed.
 			echo If you have administrator privileges, you should reopen start_lolipop.bat as Admin.
 			echo ^(it will do this automatically if you say you have admin rights^)
@@ -738,7 +738,7 @@ if !HTTPSCERT_DETECTED!==n (
 		)
 	)
 	pushd server
-	if !VERBOSElolipop!==y (
+	if !VERBOSELOLIPOP!==y (
 		if !DRYRUN!==n ( certutil -addstore -f -enterprise -user root the.crt )
 	) else (
 		if !DRYRUN!==n ( certutil -addstore -f -enterprise -user root the.crt >nul )
@@ -751,7 +751,7 @@ if !HTTPSCERT_DETECTED!==n (
 :: Alert user to restart lolipop without running as Admin
 if !ADMINREQUIRED!==y (
 	color 20
-	if !VERBOSElolipop!==n ( cls )
+	if !VERBOSELOLIPOP!==n ( cls )
 	echo:
 	echo Dependencies needing Admin now installed^^!
 	echo:
@@ -812,7 +812,7 @@ title Lolipop: Offline v!LOLIPOP_VER!b!LOLIPOP_BLD! [Loading...]
 
 :: Close existing node apps
 :: Hopefully fixes EADDRINUSE errors??
-if !VERBOSElolipop!==y (
+if !VERBOSELOLIPOP!==y (
 	if !CEPSTRAL!==n (
 		echo Closing any existing node and/or PHP apps and batch processes...
 		for %%i in (npm start,npm,http-server,HTTP-SERVER HASN'T STARTED,NODE.JS HASN'T STARTED YET,VFProxy PHP Launcher for Lolipop: Offline) do (
@@ -845,7 +845,7 @@ if !CEPSTRAL!==n (
 	echo Loading Node.js and http-server...
 )
 pushd utilities
-if !VERBOSElolipop!==y (
+if !VERBOSELOLIPOP!==y (
 	if !DRYRUN!==n ( start /MIN open_http-server.bat )
 	if !DRYRUN!==n ( start /MIN open_nodejs.bat )
 	if !DRYRUN!==n ( 
@@ -911,7 +911,7 @@ echo Lolipop: Offline has been started^^! The video list should now be open.
 ::::::::::::::::
 
 title Lolipop: Offline v!LOLIPOP_VER!b!LOLIPOP_BLD!
-if !VERBOSElolipop!==y ( goto lolipopstarted )
+if !VERBOSELOLIPOP!==y ( goto lolipopstarted )
 :lolipopstartedcls
 cls
 :lolipopstarted
@@ -920,8 +920,8 @@ echo:
 echo Lolipop: Offline v!LOLIPOP_VER!b!LOLIPOP_BLD! running
 echo A project from VisualPlugin adapted by the W:O team
 echo:
-if !VERBOSElolipop!==n ( echo DON'T CLOSE THIS WINDOW^^! Use the quit option ^(0^) when you're done. )
-if !VERBOSElolipop!==y ( echo Verbose mode is on, see the extra CMD windows for extra output. )
+if !VERBOSELOLIPOP!==n ( echo DON'T CLOSE THIS WINDOW^^! Use the quit option ^(0^) when you're done. )
+if !VERBOSELOLIPOP!==y ( echo Verbose mode is on, see the extra CMD windows for extra output. )
 if !DRYRUN!==y ( echo Don't forget, nothing actually happened, this was a dry run. )
 if !JUSTIMPORTED!==y ( echo Note: You'll need to reload the editor for your file to appear. )
 :: Hello, code wanderer. Enjoy seeing all the secret options easily instead of finding them yourself.
@@ -975,7 +975,7 @@ if /i "!choice!"=="clear" goto wrapperstartedcls
 :: funni options
 if "!choice!"=="43" echo OH MY GOD. FOURTY THREE CHARS. NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO & goto wrapperidle
 if /i "!choice!"=="RedBoi" echo watch RedBoi on youtube & goto wrapperidle
-if /i "!choice!'=="jaime" echo hey you, you just---- & goto wrapperidle
+if /i "!choice!"=="jaime" echo hey you, just----- & goto wrapperidle
 if /i "!choice!"=="ford" echo what up son & goto wrapperidle
 if /i "!choice!"=="no" echo stahp & goto wrapperidle
 if /i "!choice!"=="yes" echo Alright. & goto wrapperidle
@@ -1150,7 +1150,7 @@ goto wrapperidle
 :restart
 TASKKILL /IM node.exe /F >nul 2>&1
 if !CEPSTRAL!==n ( TASKKILL /IM php.exe /F >nul 2>&1 )
-if !VERBOSElolipop!==y (
+if !VERBOSELOLIPOP!==y (
 	for %%i in (npm start,npm,http-server,HTTP-SERVER HASN'T STARTED,NODE.JS HASN'T STARTED YET,VFProxy PHP Launcher for Lolipop: Offline,Server for imported voice clips TTS voice) do (
 		TASKKILL /FI "WINDOWTITLE eq %%i" >nul 2>&1
 	)
@@ -1307,7 +1307,7 @@ popd
 :: Deletes a temporary batch file again just in case
 if exist %tmp%\importserver.bat ( del %tmp%\importserver.bat )
 
-if !VERBOSElolipop!==y (
+if !VERBOSELOLIPOP!==y (
 	for %%i in (npm start,npm,http-server,HTTP-SERVER HASN'T STARTED,NODE.JS HASN'T STARTED YET,VFProxy PHP Launcher for Lolipop: Offline,Server for imported voice clips TTS voice) do (
 		if !DRYRUN!==n ( TASKKILL /FI "WINDOWTITLE eq %%i" >nul 2>&1 )
 	)
