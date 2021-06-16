@@ -140,7 +140,6 @@ if "!choice!"=="1" (
 	goto toggleoption
 )
 if "!choice!"=="?1" (
-title Lollipop: Offline Settings [Enabling Verbose...]
 	echo When enabled, two extra windows with more info about what Offline is doing.
 	echo The launcher will also say more about what it's doing, and never clear itself.
 	echo Mostly meant for troubleshooting and development. Default setting is off.
@@ -270,6 +269,7 @@ echo Time to choose. && goto reaskoptionscreen
 :: Toggle option ::
 :::::::::::::::::::
 :toggleoption
+title Lollipop: Offline Settings [Toggling Setting...]
 echo Toggling setting...
 :: Find line after setting to edit
 set /a AFTERLINE=!cfgline!+1
