@@ -296,6 +296,7 @@ set !totoggle!=!toggleto!
 if !BACKTODEFAULTTOGGLE!==y goto backtodefault
 if !BACKTOCUSTOMTOGGLE!==y goto backtocustom
 if !BACKTOCUSTOMTOGGLE2!==y goto backtocustom2
+title Lolipop: Offline Settings Script
 goto optionscreen
 
 ::::::::::::::::::
