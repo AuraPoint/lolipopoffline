@@ -140,6 +140,7 @@ if "!choice!"=="1" (
 	goto toggleoption
 )
 if "!choice!"=="?1" (
+title Lollipop: Offline Settings [Enabling Verbose...]
 	echo When enabled, two extra windows with more info about what Offline is doing.
 	echo The launcher will also say more about what it's doing, and never clear itself.
 	echo Mostly meant for troubleshooting and development. Default setting is off.
