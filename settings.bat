@@ -269,6 +269,7 @@ echo Time to choose. && goto reaskoptionscreen
 :: Toggle option ::
 :::::::::::::::::::
 :toggleoption
+title Lollipop: Offline Settings [Toggling Setting...]
 echo Toggling setting...
 :: Find line after setting to edit
 set /a AFTERLINE=!cfgline!+1
@@ -295,6 +296,7 @@ set !totoggle!=!toggleto!
 if !BACKTODEFAULTTOGGLE!==y goto backtodefault
 if !BACKTOCUSTOMTOGGLE!==y goto backtocustom
 if !BACKTOCUSTOMTOGGLE2!==y goto backtocustom2
+title Lolipop: Offline Settings Script
 goto optionscreen
 
 ::::::::::::::::::
